@@ -179,7 +179,7 @@ export class Map extends React.Component {
       });
 
       const containerStyles = Object.assign({},
-        mapStyles.container, this.props.containerStyle)
+        mapStyles.container, this.props.containerStyle);
 
       return (
         <div style={containerStyles} className={this.props.className}>
@@ -202,7 +202,7 @@ Map.propTypes = {
   style: T.object,
   containerStyle: T.object,
   visible: T.bool
-}
+};
 
 evtNames.forEach(e => Map.propTypes[camelize(e)] = T.func)
 

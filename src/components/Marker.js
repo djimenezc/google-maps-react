@@ -14,7 +14,7 @@ const wrappedPromise = function() {
     wrappedPromise.promise = promise;
 
     return wrappedPromise;
-}
+};
 
 export class Marker extends React.Component {
 

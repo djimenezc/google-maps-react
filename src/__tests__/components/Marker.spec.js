@@ -6,12 +6,14 @@ import sinon from 'sinon';
 
 import Marker from '../../components/Marker';
 
-// let google = {};
+let google = {};
 // google.maps = {};
-// google.maps.LatLng = function(lat, lng, opt_noWrap) {};
+// google.maps.LatLng = function(lat, lng, optNoWrap) {};
 
 describe('Marker', () => {
-  let map = null, google = global.google;
+  let map = null,
+      google = global.google,
+      mapCenter= new google.maps.LatLng(37.759703, -122.428093);
   let sandbox;
   let LatLng = null;
   let location;
@@ -19,8 +21,8 @@ describe('Marker', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    map = {}
-    location = {lat: 37.759703, lng: -122.428093}
+    map = {};
+    location = new google.maps.LatLng(37.759703, -122.428093);
 
     sandbox.stub(google.maps, 'Map').returns(google.maps.Map);
     // sandbox.stub(google.maps, 'Marker').returns(google.maps.Marker);
@@ -30,10 +32,11 @@ describe('Marker', () => {
     sandbox.restore();
   })
 
-  it('accepts a `map` and a `google` prop', () => {
-    const wrapper = mount(<Marker google={google} map={map} />);
+  it('accepts a `map`, a `google` and `mapcenter` prop', () => {
+    const wrapper = mount(<Marker google={google} map={map} mapCenter={mapCenter}/>);
     expect(wrapper.props().google).to.equal(google);
     expect(wrapper.props().map).to.equal(map);
+    // expect(wrapper.props().mapCenter).to.equal(mapCenter);
   });
 
   describe('LatLng', () => {

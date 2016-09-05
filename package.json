@@ -1,6 +1,6 @@
 {
   "name": "google-maps-react",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Google maps container",
   "author": "Fullstack.io <us@fullstack.io>",
   "license": "MIT",
@@ -71,7 +71,7 @@
     "react-dom": "~0.14.8 || ^15.0.0"
   },
   "dependencies": {
-    "history": "^3.0.0",
+    "history": "^2.0.0",
     "invariant": "^2.2.1"
   }
 }
